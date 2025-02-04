@@ -60,4 +60,4 @@ spec:
       name: Register the Component
       action: catalog:register
       input:
-        catalogInfoUrl: https://github.com/talha-hcl/new-demo-repos/blob/main/catalog-info.yaml
+        catalogInfoUrl: https://github.com/talhamoinuddin/my-app-1/blob/main/catalog-info.yaml
