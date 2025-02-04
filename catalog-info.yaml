@@ -2,17 +2,18 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: my-app-1
+  namespace: default
   description: An example of a Backstage application.
-  links:
-    - url: https://github.com/talhamoinuddin/my-app-1
-      title: GitHub Repository
-      icon: github
 spec:
   type: website
-  owner: group:default/talhamoinuddin@github.com
   lifecycle: experimental
+  owner: group:default/talhamoinuddin@github.com
+  providesApis:
+    - my-app-1-api
+    # You can list more APIs if needed
 
 ---
+
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
@@ -21,5 +22,5 @@ metadata:
 spec:
   type: team
   members:
-    - talhamoinuddin@github.com  # Just use the GitHub username here
+    - talhamoinuddin@github.com
   children: []  # Empty array for children if no subgroups
