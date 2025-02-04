@@ -94,9 +94,16 @@ catalog:
       rules:
         - allow: [User, Group]
 
+<<<<<<< HEAD
  
     - type: url
       target: https://github.com/talhamoinuddin/my-app-1/example/template/register-demo-template.yaml
+=======
+    ## Uncomment these lines to add more example data
+    # - type: url
+    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+
+>>>>>>> 565332c12c11db39d3629d8cbdecdd6ee35577e4
     ## Uncomment these lines to add an example org
     # - type: url
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
