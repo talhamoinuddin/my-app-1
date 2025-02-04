@@ -1,0 +1,63 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: register-demo
+  title: Register a Demo
+  description: Register a new demo component with Terraform deployment.
+spec:
+  owner: group:default/guests
+  type: service
+  parameters:
+    - title: Demo Information
+      required: [name, description, owner, terraformTemplate, terraformVariables, demoUrl, maxDuration, tags, documentation]
+      properties:
+        name:
+          title: Demo Name
+          type: string
+        description:
+          title: Demo Description
+          type: string
+        owner:
+          title: Owner Team
+          type: string
+          enum: ["team-a", "team-b", "team-c"]
+        terraformTemplate:
+          title: Terraform Template
+          type: string
+          format: file
+        terraformVariables:
+          title: Terraform Variables File
+          type: string
+          format: file
+        demoUrl:
+          title: Demo URL
+          type: string
+        maxDuration:
+          title: Max Duration (Hours)
+          type: integer
+        tags:
+          title: Tags
+          type: string
+        documentation:
+          title: Documentation Links
+          type: string
+
+  steps:
+    - id: publish
+      name: Publish to GitHub
+      action: publish:github
+      input:
+        allowedHosts: ["github.com"]
+        repoUrl: github.com/talha-hcl/new-demo-repos
+        repoVisibility: private
+        files:
+          - source: ${{ parameters.terraformTemplate }}
+            target: terraform/main.tf
+          - source: ${{ parameters.terraformVariables }}
+            target: terraform/variables.tf
+
+    - id: register
+      name: Register the Component
+      action: catalog:register
+      input:
+        catalogInfoUrl: https://github.com/talha-hcl/new-demo-repos/blob/main/catalog-info.yaml
