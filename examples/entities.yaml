@@ -3,7 +3,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: 
+  name: examples
   links:
     - url: https://dashboard.example.com
       title: My Dashboard

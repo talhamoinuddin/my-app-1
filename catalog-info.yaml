@@ -7,20 +7,20 @@ metadata:
 spec:
   type: website
   lifecycle: experimental
-  owner: group:default/talhamoinuddin@github.com
+  owner: user:talhamoinuddin  # Use 'user' with the GitHub username
   providesApis:
     - my-app-1-api
-    # You can list more APIs if needed
+    # List other APIs if needed
 
 ---
 
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
-  name: talhamoinuddin@github.com
-  description: Group for Talha Moinuddin
+  name: talhamoinuddin-team
+  description: Group for Talha Moinuddin's team
 spec:
   type: team
   members:
-    - talhamoinuddin@github.com
+    - talhamoinuddin
   children: []  # Empty array for children if no subgroups
